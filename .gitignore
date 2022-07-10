@@ -1,0 +1,7 @@
+
+tripTogether/gradlew
+*.bat
+tripTogether/settings.gradle
+.DS_Store
+*.jar
+*.properties
