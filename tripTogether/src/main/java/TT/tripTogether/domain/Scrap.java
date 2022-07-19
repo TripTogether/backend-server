@@ -1,12 +1,19 @@
 package TT.tripTogether.domain;
 
+import TT.tripTogether.domain.post.Post;
+import TT.tripTogether.domain.user.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
 @Entity
 @Getter
 @NoArgsConstructor
 public class Scrap extends BaseEntity{
 
     @Id
-    @GernatedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Scrap_id")
     private Long id;
 
@@ -18,10 +25,10 @@ public class Scrap extends BaseEntity{
     @JoinColumn(name = "post_id")
     private Post post;
 
-    public Scrap(Long id, User user, Posting posting){
+    public Scrap(Long id, User user, Post post){
         this.id = id;
-        this.user = user,
-        this.posting = posting;
+        this.user = user;
+        this.post = post;
     }
 
 }

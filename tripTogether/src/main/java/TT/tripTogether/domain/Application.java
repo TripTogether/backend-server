@@ -1,5 +1,12 @@
 package TT.tripTogether.domain;
 
+import TT.tripTogether.domain.post.Post;
+import TT.tripTogether.domain.user.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -9,7 +16,6 @@ public class Application extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Application_id")
-    @Column(updatable = false)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -20,13 +26,12 @@ public class Application extends BaseEntity{
     @JoinColumn(name = "post_id")
     private Post post;
 
-    @Enumerated(EnumType.STRING)
-    private Content content;
+    private String content;
 
-    public Application(Long id, User user, Posting posting, Content content) {
+    public Application(Long id, User user, Post post, String content) {
         this.id = id;
         this.user = user;
-        this.posting = posting;
+        this.post = post;
         this.content = content;
     }
 }
