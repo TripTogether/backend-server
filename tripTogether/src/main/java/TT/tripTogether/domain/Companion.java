@@ -1,5 +1,12 @@
 package TT.tripTogether.domain;
 
+import TT.tripTogether.domain.post.Post;
+import TT.tripTogether.domain.user.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -7,7 +14,7 @@ package TT.tripTogether.domain;
 public class Companion extends BaseEntity{
 
     @Id
-    @GernatedValue(strategy = GernerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Companion_id")
     private Long id;
 
@@ -19,9 +26,9 @@ public class Companion extends BaseEntity{
     @JoinColumn(name = "post_id")
     private Post post;
 
-    public Application(Long id, User user, Posting posting) {
+    public Companion(Long id, User user, Post post) {
         this.id = id;
         this.user = user;
-        this.posting = posting;
+        this.post = post;
     }
 }

@@ -1,5 +1,6 @@
 package TT.tripTogether.domain.post;
 
+import TT.tripTogether.domain.Companion;
 import TT.tripTogether.domain.route.Route;
 import TT.tripTogether.domain.user.User;
 import lombok.Getter;
@@ -28,7 +29,7 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User writer;
+    private User user;
 
     //여행 지역
     @Enumerated(EnumType.STRING)
@@ -39,9 +40,10 @@ public class Post {
     private LocalDate endDate;
 
     //동행자 리스트 추가
-//    private
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Companion> companions = new ArrayList<>();
 
-    @OneToMany(mappedBy = "post_id", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Route> routes = new ArrayList<>();
 
     //사진 리스트

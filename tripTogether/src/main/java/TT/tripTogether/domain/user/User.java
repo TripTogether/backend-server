@@ -33,7 +33,6 @@ public class User extends BaseEntity {
 
     private Level level;
 
-    @Enumerated(EnumType.STRING)
     private String phone;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

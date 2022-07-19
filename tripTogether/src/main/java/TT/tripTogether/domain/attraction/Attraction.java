@@ -1,5 +1,6 @@
 package TT.tripTogether.domain.attraction;
 
+import TT.tripTogether.domain.route.Route;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.geo.Point;
@@ -19,4 +20,8 @@ public class Attraction {
 
     //위도, 경도
     private Point point;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "route_id")
+    private Route route;
 }
