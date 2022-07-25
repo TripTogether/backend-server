@@ -1,5 +1,6 @@
-package TT.tripTogether.domain;
+package TT.tripTogether.domain.application;
 
+import TT.tripTogether.domain.BaseEntity;
 import TT.tripTogether.domain.post.Post;
 import TT.tripTogether.domain.user.User;
 import lombok.Getter;
@@ -10,25 +11,28 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Notice extends BaseEntity{
+@Table(name ="Application")
+public class Application extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Notice_id")
+    @Column(name = "Application_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User receiver;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "content_id")
+    @JoinColumn(name = "post_id")
     private Post post;
+
     private String content;
 
-    public Notice(Long id, User receiver, String content) {
+    public Application(Long id, User user, Post post, String content) {
         this.id = id;
-        this.receiver = receiver;
+        this.user = user;
+        this.post = post;
         this.content = content;
     }
 }

@@ -1,5 +1,6 @@
-package TT.tripTogether.domain;
+package TT.tripTogether.domain.scrap;
 
+import TT.tripTogether.domain.BaseEntity;
 import TT.tripTogether.domain.post.Post;
 import TT.tripTogether.domain.user.User;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Scrap extends BaseEntity{
+public class Scrap extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
