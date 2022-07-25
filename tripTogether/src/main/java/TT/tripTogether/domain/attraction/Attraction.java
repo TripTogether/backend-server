@@ -1,5 +1,6 @@
 package TT.tripTogether.domain.attraction;
 
+import TT.tripTogether.domain.BaseEntity;
 import TT.tripTogether.domain.route.Route;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Attraction {
+public class Attraction extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "attraction_id")
