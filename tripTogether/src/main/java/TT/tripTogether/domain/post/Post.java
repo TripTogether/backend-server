@@ -3,7 +3,9 @@ package TT.tripTogether.domain.post;
 import TT.tripTogether.domain.BaseEntity;
 import TT.tripTogether.domain.comment.Comment;
 import TT.tripTogether.domain.companion.Companion;
+import TT.tripTogether.domain.post.dto.PostCreateReq;
 import TT.tripTogether.domain.route.Route;
+import TT.tripTogether.domain.route.dto.RouteDto;
 import TT.tripTogether.domain.scrap.Scrap;
 import TT.tripTogether.domain.user.User;
 import lombok.Getter;
@@ -13,6 +15,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Getter
@@ -56,4 +59,22 @@ public class Post extends BaseEntity {
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
+
+    public Post(PostCreateReq postCreateReq, User user) {
+        this.user = user;
+        this.title = postCreateReq.getTitle();
+        this.content = postCreateReq.getContent();
+        this.number = postCreateReq.getNumber();
+        this.region = postCreateReq.getRegion();
+        this.startDate = postCreateReq.getStartDate();
+        this.endDate = postCreateReq.getEndDate();
+        /** 이 부분 수정하기 !!! 어떻게 가져올지
+         * Post -> Route -> Attraction
+         * **/
+        this.routes = postCreateReq.getRoutes()
+                .stream()
+                .map(Route::new)
+                .collect(Collectors.toList());
+
+    }
 }
