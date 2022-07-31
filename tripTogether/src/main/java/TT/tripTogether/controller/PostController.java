@@ -17,9 +17,14 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping("")
-    @ApiOperation("게시물 보기")
+    @ApiOperation("모든 게시물 보기")
     public BaseResponse<List<GetPostsRes>> getPosts() {
         return new BaseResponse<List<GetPostsRes>>(postService.getAll());
+    }
+
+    @GetMapping("/{postId}")
+    public BaseResponse<GetPostsRes> getPost(@PathVariable Long postId) {
+        return new BaseResponse<GetPostsRes>(postService.getPost(postId));
     }
 
     @PostMapping("/new")
@@ -31,6 +36,12 @@ public class PostController {
     @ApiOperation("Post-Create feature test")
     public BaseResponse<Long> test(@RequestBody PostCreateReq postCreateReq, @PathVariable Long userId) {
         return new BaseResponse<Long>(postService.test(postCreateReq, userId));
+    }
+
+    @DeleteMapping("/test/{postId}")
+    @ApiOperation("게시물 삭제")
+    public BaseResponse<Long> deletePost(@PathVariable Long postId) {
+        return new BaseResponse<Long>(postService.delete(postId));
     }
 
 }

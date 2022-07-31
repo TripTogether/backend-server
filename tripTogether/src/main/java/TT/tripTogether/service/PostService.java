@@ -43,4 +43,16 @@ public class PostService {
         Post post = new Post(postCreateReq, user);
         return postRepository.save(post).getId();
     }
+
+    public GetPostsRes getPost(Long postId) {
+        Optional<Post> post = postRepository.findById(postId);
+        GetPostsRes getPostsRes = new GetPostsRes(post.get());
+        return getPostsRes;
+    }
+
+    public Long delete(Long postId) {
+        Optional<Post> post = postRepository.findById(postId);
+        postRepository.delete(post.get());
+        return postId;
+    }
 }
