@@ -27,4 +27,10 @@ public class CommentController {
     private BaseResponse<List<GetAllCommentsRes>> getAll(@PathVariable Long postId) {
         return new BaseResponse<>(commentService.getAllComments(postId));
     }
+
+    @ApiOperation("댓글 삭제")
+    @DeleteMapping("/{commentId}")
+    private BaseResponse<Long> deleteComment(@PathVariable Long commentId) {
+        return new BaseResponse<Long>(commentService.deleteComment(commentId));
+    }
 }

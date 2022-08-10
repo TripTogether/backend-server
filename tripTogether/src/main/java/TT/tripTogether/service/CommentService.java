@@ -42,4 +42,11 @@ public class CommentService {
                 .collect(Collectors.toList());
         return getAllCommentsRes;
     }
+
+    /** 댓글 삭제 **/
+    public Long deleteComment(Long commentId) {
+        Optional<Comment> comment = commentRepository.findById(commentId);
+        commentRepository.delete(comment.get());
+        return comment.get().getId();
+    }
 }
