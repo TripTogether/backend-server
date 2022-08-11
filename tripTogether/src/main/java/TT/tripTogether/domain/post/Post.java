@@ -77,4 +77,9 @@ public class Post extends BaseEntity {
                 .collect(Collectors.toList());
 
     }
+
+    /** 댓글 추가 **/
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
+    }
 }
