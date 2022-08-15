@@ -1,6 +1,7 @@
 package TT.tripTogether.domain.post;
 
 import TT.tripTogether.domain.BaseEntity;
+import TT.tripTogether.domain.application.Application;
 import TT.tripTogether.domain.comment.Comment;
 import TT.tripTogether.domain.companion.Companion;
 import TT.tripTogether.domain.post.dto.PostCreateReq;
@@ -59,6 +60,9 @@ public class Post extends BaseEntity {
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Application> applications = new ArrayList<>();
 
     public Post(PostCreateReq postCreateReq, User user) {
         this.user = user;

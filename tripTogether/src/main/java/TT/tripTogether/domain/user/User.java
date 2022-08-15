@@ -1,6 +1,7 @@
 package TT.tripTogether.domain.user;
 
 import TT.tripTogether.domain.BaseEntity;
+import TT.tripTogether.domain.application.Application;
 import TT.tripTogether.domain.comment.Comment;
 import TT.tripTogether.domain.post.Post;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -42,4 +43,7 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Post> postList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Application> applications = new ArrayList<>();
 }
