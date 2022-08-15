@@ -1,6 +1,7 @@
 package TT.tripTogether.domain.comment;
 
 import TT.tripTogether.domain.BaseEntity;
+import TT.tripTogether.domain.comment.dto.PostCommentReq;
 import TT.tripTogether.domain.post.Post;
 import TT.tripTogether.domain.user.User;
 import lombok.Getter;
@@ -27,5 +28,11 @@ public class Comment extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id")
     private Post post;
+
+    public Comment(User user, Post post, PostCommentReq postCommentReq) {
+        this.user = user;
+        this.post = post;
+        this.content = postCommentReq.getContent();
+    }
 
 }
