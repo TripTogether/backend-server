@@ -1,9 +1,9 @@
 package TT.tripTogether.config;
 
-import TT.tripTogether.CustomOAuth2AuthService;
-import TT.tripTogether.CustomOidcUserService;
-import TT.tripTogether.OAuth2AuthenticationFailureHandler;
-import TT.tripTogether.OAuth2AuthenticationSuccessHandler;
+import TT.tripTogether.config.auth.CustomOAuth2AuthService;
+import TT.tripTogether.config.auth.CustomOidcUserService;
+import TT.tripTogether.config.auth.OAuth2AuthenticationFailureHandler;
+import TT.tripTogether.config.auth.OAuth2AuthenticationSuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
