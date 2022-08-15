@@ -1,5 +1,6 @@
 package TT.tripTogether.domain.post;
 
+import TT.tripTogether.domain.Application;
 import TT.tripTogether.domain.Companion;
 import TT.tripTogether.domain.route.Route;
 import TT.tripTogether.domain.user.User;
@@ -23,6 +24,9 @@ public class Post {
     private Long id;
 
     private String content;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Application> application = new ArrayList<>();
 
     //구하는 인원 수
     private int number;

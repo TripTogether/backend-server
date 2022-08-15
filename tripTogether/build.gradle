@@ -21,7 +21,19 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-security:2.7.0'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+
+	implementation 'org.springframework.boot:spring-boot-starter-tomcat:2.7.1'
+
+	//jjwt
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.2'
 
 	//lombok
 	compileOnly 'org.projectlombok:lombok'
@@ -30,11 +42,21 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 
 	//mysql
-	runtimeOnly 'mysql:mysql-connector-java'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.29'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation("org.junit.vintage:junit-vintage-engine"){
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
+	testImplementation("org.junit.vintage:junit-vintage-engine") {
 		exclude group: "org.hamcrest", module: "hamcrest-core"
+	}
+
+	implementation('org.springframework.boot:spring-boot-starter') {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+	}
+
+	configurations {
+		all {
+			exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+		}
 	}
 
 	//swagger
@@ -42,7 +64,6 @@ dependencies {
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 
 }
-
 
 
 tasks.named('test') {

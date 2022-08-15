@@ -6,16 +6,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @Table(name ="Application")
-public class Application extends BaseEntity{
+public class Application extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Application_id")
+    @Column(name = "application_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
