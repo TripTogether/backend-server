@@ -86,4 +86,7 @@ public class Post extends BaseEntity {
     public void addComment(Comment comment) {
         this.comments.add(comment);
     }
+    public void addApplication(Application application) {
+        this.application.add(application);
+    }
 }

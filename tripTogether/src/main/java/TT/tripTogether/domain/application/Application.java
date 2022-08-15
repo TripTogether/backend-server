@@ -30,8 +30,7 @@ public class Application extends BaseEntity {
 
     private String content;
 
-    public Application(Long id, User user, Post post, String content) {
-        this.id = id;
+    public Application(User user, Post post, String content) {
         this.user = user;
         this.post = post;
         this.content = content;

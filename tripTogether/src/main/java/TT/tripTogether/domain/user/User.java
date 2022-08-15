@@ -44,4 +44,8 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Application> applications = new ArrayList<>();
+
+    public void addApplication(Application application) {
+        applications.add(application);
+    }
 }
