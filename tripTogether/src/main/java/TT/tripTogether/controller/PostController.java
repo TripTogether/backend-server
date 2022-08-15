@@ -1,6 +1,7 @@
 package TT.tripTogether.controller;
 
 import TT.tripTogether.config.exception.BaseResponse;
+import TT.tripTogether.domain.post.dto.GetDetailRes;
 import TT.tripTogether.domain.post.dto.GetPostsRes;
 import TT.tripTogether.domain.post.dto.PostCreateReq;
 import TT.tripTogether.service.PostService;
@@ -22,9 +23,10 @@ public class PostController {
         return new BaseResponse<List<GetPostsRes>>(postService.getAll());
     }
 
+    @ApiOperation("게시물 상세 보기")
     @GetMapping("/{postId}")
-    public BaseResponse<GetPostsRes> getPost(@PathVariable Long postId) {
-        return new BaseResponse<GetPostsRes>(postService.getPost(postId));
+    public BaseResponse<GetDetailRes> getPost(@PathVariable Long postId) {
+        return new BaseResponse<>(postService.getPost(postId));
     }
 
     @PostMapping("/new")

@@ -1,6 +1,7 @@
 package TT.tripTogether.service;
 
 import TT.tripTogether.domain.post.Post;
+import TT.tripTogether.domain.post.dto.GetDetailRes;
 import TT.tripTogether.domain.post.dto.GetPostsRes;
 import TT.tripTogether.domain.post.dto.PostCreateReq;
 import TT.tripTogether.domain.user.User;
@@ -44,10 +45,10 @@ public class PostService {
         return postRepository.save(post).getId();
     }
 
-    public GetPostsRes getPost(Long postId) {
+    public GetDetailRes getPost(Long postId) {
         Optional<Post> post = postRepository.findById(postId);
-        GetPostsRes getPostsRes = new GetPostsRes(post.get());
-        return getPostsRes;
+        GetDetailRes getDetailRes = new GetDetailRes(post.get());
+        return getDetailRes;
     }
 
     public Long delete(Long postId) {
