@@ -1,22 +1,15 @@
 package TT.tripTogether.domain.user;
 
-import TT.tripTogether.domain.Application;
 import TT.tripTogether.domain.BaseEntity;
+import TT.tripTogether.domain.application.Application;
 import TT.tripTogether.domain.comment.Comment;
 import TT.tripTogether.domain.post.Post;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
