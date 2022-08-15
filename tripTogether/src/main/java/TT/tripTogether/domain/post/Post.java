@@ -1,6 +1,7 @@
 package TT.tripTogether.domain.post;
 
 import TT.tripTogether.domain.BaseEntity;
+import TT.tripTogether.domain.application.Application;
 import TT.tripTogether.domain.comment.Comment;
 import TT.tripTogether.domain.companion.Companion;
 import TT.tripTogether.domain.post.dto.PostCreateReq;
@@ -30,6 +31,9 @@ public class Post extends BaseEntity {
     private String title;
 
     private String content;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Application> application = new ArrayList<>();
 
     //구하는 인원 수
     private int number;
