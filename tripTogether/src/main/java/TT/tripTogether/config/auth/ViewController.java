@@ -1,4 +1,4 @@
-package TT.tripTogether;
+package TT.tripTogether.config.auth;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
