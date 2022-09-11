@@ -24,7 +24,7 @@ public class OAuth2AuthenticationSuccessHandler implements AuthenticationSuccess
         Provider provider = Provider.valueOf(path[path.length - 1].toUpperCase());
         String oauthId = authentication.getName();
 
-        String uri = UriComponentsBuilder.fromUriString( "http://localhost:80/social")
+        String uri = UriComponentsBuilder.fromUriString( "http://localhost:8080/social")
                 .queryParam("provider", provider)
                 .queryParam("oauthId", oauthId)
                 .build().toUriString();
