@@ -6,7 +6,6 @@ import TT.tripTogether.domain.comment.Comment;
 import TT.tripTogether.domain.companion.Companion;
 import TT.tripTogether.domain.post.dto.PostCreateReq;
 import TT.tripTogether.domain.route.Route;
-import TT.tripTogether.domain.route.dto.RouteDto;
 import TT.tripTogether.domain.scrap.Scrap;
 import TT.tripTogether.domain.user.User;
 import lombok.Getter;
@@ -16,6 +15,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Entity

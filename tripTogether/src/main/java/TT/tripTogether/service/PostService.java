@@ -6,6 +6,7 @@ import TT.tripTogether.domain.post.dto.GetPostsRes;
 import TT.tripTogether.domain.post.dto.PostCreateReq;
 import TT.tripTogether.domain.user.User;
 import TT.tripTogether.repository.PostRepository;
+import TT.tripTogether.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,7 @@ import java.util.stream.Collectors;
 public class PostService {
     private final PostRepository postRepository;
     private final UserService userService;
+    private final UserRepository userRepository;
 
     public List<GetPostsRes> getAll() {
         List<Post> posts = postRepository.findAll();
@@ -32,16 +34,18 @@ public class PostService {
     @Transactional
     public Long create(PostCreateReq postCreateReq) {
 
-        User user = userService.getUserFromAuth();
+//        User user = userService.getUserFromAuth();
+        Long num = Long.valueOf(1);
+        Optional<User> user = userRepository.findById(num);
 
-        Post post = new Post(postCreateReq, user);
+        Post post = new Post(postCreateReq, user.get());
         return postRepository.save(post).getId();
     }
 
     public Long test(PostCreateReq postCreateReq, Long userId) {
-        User user = userService.findById(userId);
+        Optional<User> user = userRepository.findById(userId);
 
-        Post post = new Post(postCreateReq, user);
+        Post post = new Post(postCreateReq, user.get());
         return postRepository.save(post).getId();
     }
 

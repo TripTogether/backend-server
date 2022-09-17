@@ -3,9 +3,9 @@ spring:
   # 데이터 소스 설정
   datasource:
     ## mySQL url, id, pw 설정해주세요
-    url: jdbc:mysql://localhost:3306/TripTogether?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://tt.cpsdhebt0ibj.ap-northeast-2.rds.amazonaws.com:3306/tt?serverTimezone=Asia/Seoul
     username: root
-    password: dldmswl0616
+    password: triptogether
     driver-class-name: com.mysql.cj.jdbc.Driver
   mvc:
     pathmatch:
