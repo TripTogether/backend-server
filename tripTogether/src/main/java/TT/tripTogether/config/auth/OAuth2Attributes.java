@@ -1,4 +1,4 @@
-package TT.tripTogether;
+package TT.tripTogether.config.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Builder;
